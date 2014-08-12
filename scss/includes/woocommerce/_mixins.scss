@@ -7,12 +7,12 @@ $woocommerce: #ad74a2;
 		clear:both;
 	}
 }
-@mixin border_radius($radius:4px) {
+@mixin border_radius($radius:0px) {
 	-webkit-border-radius:$radius;
 	-moz-border-radius:$radius;
 	border-radius:$radius;
 }
-@mixin border_radius_right($radius:4px) {
+@mixin border_radius_right($radius:0px) {
 	-webkit-border-top-right-radius: $radius;
 	-webkit-border-bottom-right-radius: $radius;
 	-moz-border-radius-topright: $radius;
@@ -20,7 +20,7 @@ $woocommerce: #ad74a2;
 	border-top-right-radius: $radius;
 	border-bottom-right-radius: $radius;
 }
-@mixin border_radius_left($radius:4px) {
+@mixin border_radius_left($radius:0px) {
 	-webkit-border-top-left-radius: $radius;
 	-webkit-border-bottom-left-radius: $radius;
 	-moz-border-radius-topleft: $radius;
@@ -28,7 +28,7 @@ $woocommerce: #ad74a2;
 	border-top-left-radius: $radius;
 	border-bottom-left-radius: $radius;
 }
-@mixin border_radius_bottom($radius:4px) {
+@mixin border_radius_bottom($radius:0px) {
 	-webkit-border-bottom-left-radius: $radius;
 	-webkit-border-bottom-right-radius: $radius;
 	-moz-border-radius-bottomleft: $radius;
@@ -36,7 +36,7 @@ $woocommerce: #ad74a2;
 	border-bottom-left-radius: $radius;
 	border-bottom-right-radius: $radius;
 }
-@mixin border_radius_top($radius:4px) {
+@mixin border_radius_top($radius:0px) {
 	-webkit-border-top-left-radius: $radius;
 	-webkit-border-top-right-radius: $radius;
 	-moz-border-radius-topleft: $radius;
@@ -44,24 +44,24 @@ $woocommerce: #ad74a2;
 	border-top-left-radius: $radius;
 	border-top-right-radius: $radius;
 }
-@mixin opacity($opacity:0.75) {
+@mixin opacity($opacity:1) {
 	filter: alpha(opacity=( $opacity * 100 ) );
 	-moz-opacity:$opacity;
 	-khtml-opacity: $opacity;
 	opacity: $opacity;
 }
-@mixin box_shadow($shadow_x:3px, $shadow_y:3px, $shadow_rad:3px, $shadow_in:3px, $shadow_color:#888) {
-	box-shadow:$shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
-	-webkit-box-shadow:$shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
-	-moz-box-shadow:$shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+@mixin box_shadow($shadow_x:0px, $shadow_y:0px, $shadow_rad:0px, $shadow_in:0px, $shadow_color:#888) {
+	//box-shadow:$shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+	//-webkit-box-shadow:$shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+	//-moz-box-shadow:$shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
 }
-@mixin inset_box_shadow($shadow_x:3px, $shadow_y:3px, $shadow_rad:3px, $shadow_in:3px, $shadow_color:#888) {
-	box-shadow:inset $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
-	-webkit-box-shadow:inset $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
-	-moz-box-shadow:inset $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+@mixin inset_box_shadow($shadow_x:0px, $shadow_y:0px, $shadow_rad:0px, $shadow_in:0px, $shadow_color:#888) {
+	//box-shadow:inset $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+	//-webkit-box-shadow:inset $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
+	//-moz-box-shadow:inset $shadow_x $shadow_y $shadow_rad $shadow_in $shadow_color;
 }
-@mixin text_shadow($shadow_x:3px, $shadow_y:3px, $shadow_rad:3px, $shadow_color:#fff) {
-	text-shadow:$shadow_x $shadow_y $shadow_rad $shadow_color;
+@mixin text_shadow($shadow_x:0px, $shadow_y:0px, $shadow_rad:0px, $shadow_color:#fff) {
+	//text-shadow:$shadow_x $shadow_y $shadow_rad $shadow_color;
 }
 @mixin vertical_gradient($from: #000, $to: #FFF) {
 	background: $from;
@@ -96,9 +96,9 @@ $woocommerce: #ad74a2;
 
 @mixin darkorlighttextshadow( $a, $opacity: 0.8 ) {
     @if lightness( $a ) >= 65% {
-        @include text_shadow( 0, -1px, 0, rgba(0, 0, 0, $opacity) );
+        //@include text_shadow( 0, -1px, 0, rgba(0, 0, 0, $opacity) );
     } @else {
-        @include text_shadow( 0, 1px, 0, rgba(255, 255, 255, $opacity) );
+        //@include text_shadow( 0, 1px, 0, rgba(255, 255, 255, $opacity) );
     }
 }
 

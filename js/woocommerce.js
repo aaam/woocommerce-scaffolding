@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function($) { <!--Start JQuery -->
 
   //Makes all products the same height on the category pages.
   equalheight = function(container){
@@ -40,4 +40,4 @@ jQuery(document).ready(function($) {
     equalheight('#main .products .product');
   });
 
-});
+});<!--End JQuery -->

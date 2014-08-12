@@ -16,12 +16,11 @@ global $woocommerce, $product, $post;
 
 <form class="variations_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo $post->ID; ?>" data-product_variations="<?php echo esc_attr( json_encode( $available_variations ) ) ?>">
 	<?php if ( ! empty( $available_variations ) ) : ?>
-		<table class="variations" cellspacing="0">
-			<tbody>
+		<div class="variations" cellspacing="0">
 				<?php $loop = 0; foreach ( $attributes as $name => $options ) : $loop++; ?>
-					<tr>
-						<td class="label"><label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label></td>
-						<td class="value"><select id="<?php echo esc_attr( sanitize_title( $name ) ); ?>" name="attribute_<?php echo sanitize_title( $name ); ?>">
+					<div>
+						<div class="label"><label for="<?php echo sanitize_title($name); ?>"><?php echo wc_attribute_label( $name ); ?></label></div>
+						<div class="value"><select id="<?php echo esc_attr( sanitize_title( $name ) ); ?>" name="attribute_<?php echo sanitize_title( $name ); ?>">
 							<option value=""><?php echo __( 'Choose an option', 'woocommerce' ) ?>&hellip;</option>
 							<?php
 								if ( is_array( $options ) ) {
@@ -71,11 +70,10 @@ global $woocommerce, $product, $post;
 						</select> <?php
 							if ( sizeof( $attributes ) == $loop )
 								echo '<a class="reset_variations" href="#reset">' . __( 'Clear selection', 'woocommerce' ) . '</a>';
-						?></td>
-					</tr>
+						?></div>
+					</div>
 		        <?php endforeach;?>
-			</tbody>
-		</table>
+		</div>
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
