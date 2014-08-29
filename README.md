@@ -1,4 +1,6 @@
-woocommerce-scaffolding
+WooCommerce-Scaffolding
 =======================
 
-WooCommerce Addon for Scaffolding
+WooCommerce Add-on for Scaffolding.io
+
+V0.9
