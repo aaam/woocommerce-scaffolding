@@ -40,4 +40,12 @@ jQuery(document).ready(function($) { <!--Start JQuery -->
     equalheight('#main .products .product');
   });
 
+  //Fixes bug on checkout page where dropdown forms would not appear
+  $('input#ship-to-different-address-checkbox').on('ifToggled', function(event){
+      $( 'div.shipping_address' ).toggle();  
+  });
+  $('input#createaccount').on('ifToggled', function(event){
+      $( 'div.create-account' ).toggle();  
+  });
+
 });<!--End JQuery -->

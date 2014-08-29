@@ -26,7 +26,7 @@ $quaternary: 	desaturate( darken( $tertiary, 45%), 40% ); /* Price slider bg */
 	margin: 0 0 2em;
 	position: relative;
 	@include border_radius();
-	@include vertical_gradient( lighten( $secondary, 2 ), $secondary );
+	@include vertical_gradient( lighten( $secondary, 30 ), lighten( $secondary, 30 ) );
 	color: $secondarytext;
 	@include text_shadow( 0, 1px, 0, lighten( $secondary, 4 ) );
 	list-style:none outside;
@@ -40,27 +40,8 @@ $quaternary: 	desaturate( darken( $tertiary, 45%), 40% ); /* Price slider bg */
 	box-shadow:
 		inset 0 -2px 6px rgba(0,0,0,0.05),
 		inset 0 -2px 30px rgba(0,0,0,0.015),
-		inset 0 1px 0 #fff,
+		inset 0 0 0 #fff,
 		0 1px 2px rgba(0,0,0,0.3);
-
-	&:before {
-		content: "";
-		height: 1.5em;
-		width: 1.5em;
-		display:block;
-		position:absolute;
-		top: 0;
-		left: 1em;
-		font-family: sans-serif;
-		font-size:1em;
-		line-height: 1.5;
-		text-align: center;
-		color: #fff;
-		text-shadow:0 1px 0 rgba(0,0,0,0.2);
-		padding-top:1em;
-		@include border_radius_bottom();
-		@include inset_box_shadow(0,-1px,0,0,rgba(0,0,0,0.1));
-	}
 
 	.button {
 		float: right;
@@ -74,28 +55,13 @@ $quaternary: 	desaturate( darken( $tertiary, 45%), 40% ); /* Price slider bg */
 }
 
 .woocommerce-message {
-	border-top:3px solid #8fae1b;
-	&:before {
-		background-color:#8fae1b;
-		content: "\2713";
-	}
+	border-left:3px solid #8fae1b;
 }
 .woocommerce-info {
-	border-top:3px solid #1e85be;
-	&:before {
-		background-color:#1e85be;
-		content: "i";
-		font-family: Times, Georgia, serif;
-		font-style: italic;
-	}
+	border-left:3px solid #1e85be;
 }
 .woocommerce-error {
-	border-top:3px solid #b81c23;
-	&:before {
-		background-color:#b81c23;
-		content: "\00d7";
-		font-weight: 700;
-	}
+	border-left:3px solid #b81c23;
 }
 
 p.demo_store {
@@ -331,7 +297,6 @@ p.demo_store {
 
 		/* add to cart forms */
 		form.cart {
-			margin-bottom: 2em;
 			@include clearfix();
 			div.quantity {
 				float:left;
@@ -368,9 +333,12 @@ p.demo_store {
 				}
 			}
 			.button {
-				float:right;
+				float: right;
+				height: 40px;
+				left: auto;
 				margin: 41px 0;
-				height: 40px
+				position: relative;
+				transform: none;
 			}
 
 			.group_table {
@@ -445,10 +413,9 @@ p.demo_store {
 
 	ul.products {
 		li.product {
-			float:left;
-			padding: 0px 7.5px 33px;
+			margin: 0 0 2em;
+			padding: 0 0 33px;
 			position: relative;
-			margin-left: 0;
 			text-align: center;
 			.onsale {
 				top: 0;
@@ -464,6 +431,7 @@ p.demo_store {
 			}
 			a {
 				text-decoration:none;
+				margin: 0 auto;
 			}
 			a img {
 				width: 100%;
@@ -513,6 +481,7 @@ p.demo_store {
 		margin: 0 0 1em;
 	}
 	.woocommerce-ordering {
+		width: 100%;
 		margin: 0 0 1em;
 		float: right;
 		select {
@@ -574,6 +543,9 @@ p.demo_store {
 		white-space: nowrap;
 		display: inline-block;
 		background: none repeat scroll 0 0 #444;
+		padding: 0.6em 2em;
+		bottom: 0;
+		position: relative;
 		@include border_radius();
 		@include darkorlighttextshadow( $secondarytext );
 		@include vertical_gradient( $primary, darken( $primary, 0) );
@@ -589,7 +561,7 @@ p.demo_store {
 				right: 0;
 				left: 0;
 				bottom: 0;
-				background: url(../images/ajax-loader.gif) center no-repeat rgba(255,255,255,0.65);
+				background: url(/wp-content/plugins/woocommerce/assets/images/ajax-loader.gif) center no-repeat rgba(255,255,255,1);
 			}
 		}
 
@@ -1004,24 +976,18 @@ p.demo_store {
 	-------------------------------------------------------------- */
 
 	table.shop_attributes {
-		border: 0;
-		border-top: 1px dotted rgba(0,0,0,0.1);
 		margin-bottom: 1.618em;
 		width: 100%;
 		th {
 			width: 150px;
 			font-weight:bold;
 			padding: 8px;
-			border-top: 0;
-			border-bottom: 1px dotted rgba(0,0,0,0.1);
 			margin: 0;
 			line-height: 1.5em;
 		}
 		td {
 			font-style: italic;
 			padding: 0.25em;
-			border-top: 0;
-			border-bottom: 1px dotted rgba(0,0,0,0.1);
 			margin: 0;
 			line-height: 1.5em;
 			vertical-align: middle;
@@ -1036,7 +1002,7 @@ p.demo_store {
 	}
 
 	table.shop_table {
-		border: 1px solid rgba(0,0,0,0.1);
+		//border: 1px solid rgba(0,0,0,0.1);
 		margin: 0px -1px 24px 0px;
 		text-align:left;
 		width: 100%;
@@ -1048,7 +1014,7 @@ p.demo_store {
 			padding: 9px 12px;
 		}
 		td {
-			border-top: 1px solid rgba(0,0,0,0.1);
+			//border-top: 1px solid rgba(0,0,0,0.1);
 			padding: 6px 12px;
 			vertical-align: middle;
 			small {
@@ -1057,7 +1023,7 @@ p.demo_store {
 		}
 		tfoot td, tfoot th {
 			font-weight:bold;
-			border-top: 1px solid rgba(0,0,0,0.1);
+			//border-top: 1px solid rgba(0,0,0,0.1);
 		}
 	}
 
@@ -1140,7 +1106,7 @@ p.demo_store {
 					display:none;
 				}
 				.input-text {
-					width: 80px;
+					width: 150px;
 					float:left;
 					-webkit-box-sizing:border-box;
 					-moz-box-sizing:border-box;
@@ -1153,12 +1119,11 @@ p.demo_store {
 					margin: 0 4px 0 0;
 					outline: 0;
 					//background: lighten($secondary, 5) none;
-					line-height: 1em;
+					line-height: 1.5em;
 				}
 			}
 			.button.alt {
 				float: right;
-				margin-left: .25em;
 			}
 		}
 		input {
@@ -1254,7 +1219,7 @@ p.demo_store {
 		}
 		.shipping_calculator {
 			width: 48%;
-			text-align: right;
+			text-align: left;
 			@include clearfix();
 			margin: 20px 0 0 0;
 			clear: right;
@@ -1272,9 +1237,8 @@ p.demo_store {
 		}
 		.cart_totals {
 			float: right;
-
 			width: 48%;
-			text-align: right;
+			text-align: left;
 			p {
 				margin: 0;
 				small {
@@ -1307,7 +1271,6 @@ p.demo_store {
 				color: $highlight;
 			}
 			tr td, tr th {
-				border-top: 1px solid $secondary;
 				padding: 6px 6px;
 			}
 			a.button.alt {
@@ -1366,7 +1329,8 @@ p.demo_store {
 				width: 100%;
 				margin: 0;
 				outline: 0;
-				line-height: 1em;
+				line-height: 1.5em;
+				padding: 5px;
 			}
 			textarea {
 				height: 3.5em;
@@ -1482,7 +1446,7 @@ p.demo_store {
 
 	/* Payment box - appears on checkout and page page */
 	#payment {
-		background: $secondary;
+		background: lighten($secondary, 20);
 		@include border_radius();
 
 		ul.payment_methods {
@@ -1842,6 +1806,240 @@ p.demo_store {
 	}
 }
 
+/* START Make the cart table responsive */
+@media screen and (max-width: 600px) {
+
+	/* Force table to not be like tables anymore */
+	.woocommerce-page table.shop_table {
+	  display: block;
+	  thead, tbody, th, td, tr {
+	    display: block;
+	    &.actions-row {
+	    	background: #fff;
+	    }
+	  }
+	  thead tr {
+	    position: absolute;
+	    top: -9999px;
+	    left: -9999px;
+	  }
+	  td {
+	    /* Behave like a "row" */
+	    position: relative;
+	    padding-left: 35% !important;
+	    &.product-spacer {
+	      border-color: #FFF;
+	      height: 10px;
+	    }
+	    &:before {
+	      /* Now like a table header */
+	      position: absolute;
+	      top: 6px;
+	      left: 6px;
+	      width: 25%;
+	      padding-right: 10px;
+	      white-space: nowrap;
+	    }
+	    &.product-remove:before {
+	      content: "DELETE";
+	    }
+	    &.product-thumbnail:before {
+	      content: "IMAGE";
+	    }
+	    &.product-name:before {
+	      content: "PRODUCT";
+	    }
+	    &.product-price:before {
+	      content: "PRICE";
+	    }
+	    &.product-quantity:before {
+	      content: "QUANTITY";
+	    }
+	    &.product-subtotal:before {
+	      content: "SUBTOTAL";
+	    }
+	    &.product-total:before {
+	      content: "TOTAL";
+	    }
+	  }
+	  border: none;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+
+	/*
+	Label the data
+	*/
+
+	.woocommerce {
+	  .quantity, #content .quantity {
+	    margin: 0;
+	  }
+	}
+
+	.woocommerce-page {
+	  .quantity, #content .quantity {
+	    margin: 0;
+	  }
+	  table.cart td.actions, #content table.cart td.actions {
+	    text-align: left;
+	    padding: 0 !important;
+	  }
+	  table.cart td.actions .button.alt, #content table.cart td.actions .button.alt {
+	    float: left;
+	    margin-top: 10px;
+	  }
+	  table.cart td.actions div, #content table.cart td.actions div, table.cart td.actions input, #content table.cart td.actions input {
+	    margin-bottom: 10px;
+	  }
+	  .cart-collaterals .cart_totals {
+	    float: left;
+	    width: 100%;
+	    text-align: left;
+	    th, td {
+	    }
+	    table tr {
+	      &.cart-subtotal td, &.shipping td, &.total td {
+	        padding-left: 6px !important;
+	      }
+	    }
+	  }
+	  table.shop_table {
+	    tr {
+	      &.cart-subtotal td, &.shipping td, &.total td {
+	        padding-left: 6px !important;
+	        border: 0 !important;
+	      }
+	    }
+	    &.order_details tfoot {
+	      th, td {
+	        padding-left: 6px !important;
+	        border: 0 !important;
+	      }
+	    }
+	    tbody {
+	      padding-top: 10px;
+	    }
+	  }
+	}
+
+	.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1, .woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+	  float: none;
+	  width: 100%;
+	}
+
+	.woocommerce form {
+	  .form-row-first, .form-row-last {
+	    float: none;
+	    width: 100%;
+	  }
+	}
+
+	.woocommerce-page form {
+	  .form-row-first, .form-row-last {
+	    float: none;
+	    width: 100%;
+	  }
+	}
+
+	.woocommerce .order_details ul, .woocommerce-page .order_details ul, .woocommerce .order_details, .woocommerce-page .order_details {
+	  padding: 0;
+	}
+
+	.woocommerce .order_details li, .woocommerce-page .order_details li {
+	  clear: left;
+	  margin-bottom: 10px;
+	  border: 0;
+	}
+
+	/* make buttons full width, text wide anyway, improves effectiveness */
+	#content table.cart td.actions .button {
+	  width: 100%;
+	}
+
+	.woocommerce {
+	  #content table.cart td.actions {
+	    .input-text, input {
+	      width: 100%;
+	    }
+	  }
+	  table.cart td.actions {
+	    .button, .input-text, input {
+	      width: 100%;
+	    }
+	  }
+	}
+
+	.woocommerce-page {
+	  #content table.cart td.actions {
+	    .button, .input-text, input {
+	      width: 100%;
+	    }
+	  }
+	  table.cart td.actions {
+	    .button, .input-text, input {
+	      width: 100%;
+	    }
+	  }
+	}
+
+	/* keep coupon at 50% */
+	#content table.cart td.actions .coupon .button {
+	  width: 48%;
+	}
+
+	.woocommerce {
+	  #content table.cart td.actions .coupon {
+	    .input-text, input {
+	      width: 48%;
+	    }
+	  }
+	  table.cart td.actions .coupon {
+	    .button, .input-text, input {
+	      width: 48%;
+	    }
+	  }
+	}
+
+	.woocommerce-page {
+	  #content table.cart td.actions .coupon {
+	    .button, .input-text, input {
+	      width: 48%;
+	    }
+	  }
+	  table.cart td.actions .coupon {
+	    .button, .input-text, input {
+	      width: 48%;
+	    }
+	  }
+	}
+
+	.woocommerce-page {
+		#content table.cart td.actions .coupon, table.cart td.actions .coupon {
+		    margin-top: 1.5em;
+		    width: 100%;
+		  }
+		#content table.cart td.actions .coupon .input-text, table.cart td.actions .coupon .input-text {
+			line-height: 1.5em;
+			margin-right: 4%;
+		  }
+		#content .cart-collaterals .shipping_calculator, .woocommerce-page .cart-collaterals .shipping_calculator {
+			width: 100%;
+			text-align: left;
+			h2 {
+			}
+		}
+	}
+
+	/* remove cross sells, they interfere with flow between cart and cart totals + shipping calculator */
+	.woocommerce .cart-collaterals .cross-sells, .woocommerce-page .cart-collaterals .cross-sells {
+	  display: none;
+	}
+
+
+
+}/* END Make the cart table responsive */
+
 @media only screen and (min-width: $screen-sm-min) {
 .woocommerce-message, .woocommerce-error, .woocommerce-info {
 
@@ -2033,6 +2231,8 @@ p.demo_store {
 
 	.products ul, ul.products {
 		li {
+			a.add_to_cart_button {
+			}
 		}
 	}
 
@@ -2040,7 +2240,18 @@ p.demo_store {
 		@include clearfix();
 		ul.products, ul {
 			li.product {
-				img {
+				width: 21%;
+				margin: 0 2% 2em;
+
+				&.first {
+					clear:both;
+					margin-left: 0;
+					margin-right: 2%;
+				}
+
+				&.last {
+					margin-left: 2%;
+					margin-right: 0;
 				}
 			}
 		}
@@ -2048,6 +2259,9 @@ p.demo_store {
 
 	ul.products {
 		li.product {
+			float:left;
+			width: 30%;
+			margin: 0 2.5% 2em;
 
 			.onsale {
 
@@ -2082,12 +2296,12 @@ p.demo_store {
 		}
 		li.first {
 			clear:both;
-			padding-left: 0;
-			padding-right:15px;
+			margin-left: 0;
+			margin-right: 2.5%;
 		}
 		li.last {
-			padding-left:15px;
-			padding-right: 0;
+			margin-left: 2.5%;
+			margin-right: 0;
 		}
 	}
 
@@ -2114,7 +2328,6 @@ p.demo_store {
 
 	a.button, button.button, input.button, #respond input#submit, #content input.button {
 		width: auto;
-		padding: 0.6em 2em;
 
 		&.loading {
 
@@ -2142,10 +2355,6 @@ p.demo_store {
 
 	li.product {
 		a.button, button.button, input.button, #respond input#submit, #content input.button {
-			margin: 0 0 0 -25%;
-			position: absolute;
-			bottom: 0;
-			left: 50%;
 		}
 	}
 
@@ -2355,6 +2564,9 @@ p.demo_store {
 			}
 		}
 		input {
+			&.checkout-button {
+				margin-left: 0.25em;
+			}
 		}
 	}
 

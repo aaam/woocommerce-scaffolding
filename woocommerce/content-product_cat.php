@@ -24,7 +24,7 @@ if ( empty( $woocommerce_loop['columns'] ) )
 // Increase loop count
 $woocommerce_loop['loop']++;
 ?>
-<li class="col-xs-6 col-sm-4 product<?php
+<li class="col-sm-4 product<?php
     if ( ( $woocommerce_loop['loop'] - 1 ) % 3 == 0 || $woocommerce_loop['columns'] == 1 )
         echo ' first';
     if ( $woocommerce_loop['loop'] % 3 == 0 )
